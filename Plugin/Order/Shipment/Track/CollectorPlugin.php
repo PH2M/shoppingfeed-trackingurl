@@ -82,7 +82,7 @@ class CollectorPlugin
             }
 
             if (empty($trackingUrl)) {
-                $trackingUrl = is_callable([ $salesOrderTrack, 'getUrl' ]) ? trim($salesOrderTrack->getUrl()) : '';
+                $trackingUrl = (is_callable([ $salesOrderTrack, 'getUrl' ]) && $salesOrderTrack->getUrl()) ? trim($salesOrderTrack->getUrl()) : '';
             }
 
             $relevance = Collector::DEFAULT_BASE_TRACK_RELEVANCE;
